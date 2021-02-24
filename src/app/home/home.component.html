@@ -1,0 +1,63 @@
+<div class="home-container">
+    <div class="row sub-container1 main-container">
+        <div class="col-6 container1-left-wapper">
+            <div class="side-bubble"></div>
+            <div class="collect-img"></div>
+            <div class="lines"></div>
+        </div>
+        <div class="col-6 container1-right-wapper">
+            <div class="top-bubble"></div>
+            <div class="eligible-calci-box">
+                <div class="card calci-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Eligibility Calculator</h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row sub-container2 features-container">
+        <div class="col-7 container2-left-wapper" *ngIf="featuresList && featuresList.length>0">
+            <div class="col1">
+                <div class="card custom-card" *ngFor="let cardData of featuresList|slice:0:3;let i=index">
+                    <img src={{cardData.imagePath}} class="card-img-top" alt="{{cardData.title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{cardData.title}}</h5>
+                        <p class="card-text">{{cardData.description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col2">
+                <div class="card custom-card active" *ngFor="let cardData of featuresList|slice:4:5;let i=index">
+                    <img src={{cardData.imagePath}} class="card-img-top" alt="{{cardData.title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{cardData.title}}</h5>
+                        <p class="card-text">{{cardData.description}}</p>
+                    </div>
+                </div>
+                <div class="card custom-card">
+                    <img src="../../assets/images/get-paid.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Quick cash disbursement</h5>
+                        <p class="card-text">Get terms loans that your business needs within 72 hrs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 container2-right-wapper">
+            <div style="width: 60%;">
+                <div class="sub-header">
+                    Boost your business <br>with Open
+                </div>
+                <div class="underline"></div>
+                <div class="sub-title">
+                    Get your hands on a term loan that’s crafted for your business
+                </div>
+                <div>
+                    <button class="btn open-acc">Get started</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

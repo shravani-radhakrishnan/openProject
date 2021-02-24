@@ -1,0 +1,128 @@
+@import "../../assets/color";
+@import "../../assets/mixin";
+.collect-img {
+    width: 652px;
+    height: 365px;
+    background: transparent url("../../assets/images/collect-images.png") 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+    top: 18rem;
+    left: 10rem;
+}
+.side-bubble {
+    width: 688px;
+    height: 675px;
+    background: transparent url("../../assets/images/blob-small.png") 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+    left: -10rem;
+    top: 2rem;
+}
+.lines {
+    position: absolute;
+    top: 39rem;
+    left: 32rem;
+    width: 430px;
+    height: 70px;
+    opacity: 0.5;
+    background: transparent url("../../assets/images/dots.png") 0% 0% no-repeat padding-box;
+}
+.top-bubble {
+    width: 983px;
+    height: 1058px;
+    background: transparent url("../../assets/images/circle.png") 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+    top: -18rem;
+    right: 1rem;
+}
+.features-container {
+    left: 0.0001220703125px;
+    width: 1920px;
+    height: 936px;
+    background: transparent url("../../assets/images/wave.png") 0% 0% no-repeat padding-box;
+    opacity: 1;
+    margin-top: 63rem;
+    position: relative;
+}
+.custom-card {
+    top: 1137px;
+    left: 191px;
+    width: 391px;
+    height: 253px;
+    @include padding(1.5rem);
+    box-shadow: 0px 0px 30px #2321321f;
+    border-radius: 20px;
+    opacity: 1;
+    @include margin(3rem);
+    img {
+        top: 1484px;
+        left: 225px;
+        width: 90px;
+        height: 90px;
+    }
+    .card-body {
+        .card-title {
+            top: 1280px;
+            left: 225px;
+            width: 323px;
+            height: 19px;
+            color: $black;
+        }
+        .card-text {
+            @include font(15px);
+            color: $light-ash2;
+        }
+    }
+}
+.container2-left-wapper {
+    display: flex;
+    align-items: center;
+    margin-top: -80rem;
+    position: absolute;
+}
+.active {
+    background: transparent url("../../assets/images/rectangle.png") 50% 50% no-repeat padding-box;
+    .card-body > .card-title,
+    .card-text {
+        color: $white !important;
+    }
+}
+.open-acc {
+    @include getButton(none, $purple, 279px, 58px);
+    color: $purple;
+}
+.container2-right-wapper {
+    margin-top: 12rem;
+    position: absolute;
+    right: 0rem;
+}
+.sub-header {
+    @include font(40px);
+    color: $light-black;
+    line-height: 40px;
+}
+.sub-title {
+    @include font(18px);
+    color: $light-ash;
+    line-height: 25px;
+    @include margin(2rem 0rem 3rem 0rem);
+}
+.underline {
+    background: $light-ash1;
+    width: 40%;
+    height: 5px;
+    @include margin(1rem 0rem 1rem 0rem);
+}
+.eligible-calci-box {
+    right: 4rem;
+    width: 688px;
+    height: 675px;
+    position: absolute;
+    top: 13rem;
+    bottom: 0px;
+}
+.calci-card{
+    width: 680px;
+    height: 670px;
+}
