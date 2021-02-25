@@ -22,7 +22,8 @@
                                     <p class="fw-600 head-color">Monthly Income</p>
                                     <p class="f-20 fw-600">{{incomeSliderVal | currency:'INR' : 'symbol' : '1.0-0'}}</p>
                                 </div>
-                                <mat-slider [min]=minIncome [max]=maxIncome [(ngModel)]="incomeSliderVal" (change)="calculate()"></mat-slider>
+                                <mat-slider [min]=minIncome [max]=maxIncome [(ngModel)]="incomeSliderVal"
+                                    (change)="calculate()"></mat-slider>
                                 <div class="d-flex justify-content-between">
                                     <span class="f-10">{{minIncome |currency:'INR' : 'symbol' : '1.0-0'}}</span>
                                     <span class="f-10">{{maxIncome |currency:'INR' : 'symbol' : '1.0-0'}}</span>
@@ -33,7 +34,8 @@
                                     <p class="fw-600 head-color f-18">Monthly Expense</p>
                                     <p class="f-20 fw-600">{{expenseSliderVal |currency:'INR' : 'symbol' : '1.0-0'}}</p>
                                 </div>
-                                <mat-slider [min]=minExpense [max]=maxExpense [(ngModel)]="expenseSliderVal" [disabled]=disable (change)="calculate()">
+                                <mat-slider [min]=minExpense [max]=maxExpense [(ngModel)]="expenseSliderVal"
+                                    [disabled]=disable (change)="calculate()">
                                 </mat-slider>
                             </div>
                             <div class="tenture p-2">
@@ -41,7 +43,8 @@
                                     <p class="fw-600 head-color f-18">Repayment Tenure</p>
                                 </div>
                                 <mat-form-field appearance="fill" class="mat-form-tenture">
-                                    <mat-select [(value)]="selectedMonth" class="fw-600 f-18" (selectionChange)="calculate()">
+                                    <mat-select [(value)]="selectedMonth" class="fw-600 f-18"
+                                        (selectionChange)="calculate()">
                                         <mat-option *ngFor="let selectedMonth of monthsList" [value]="selectedMonth"
                                             class="f-20 fw-600">{{selectedMonth}} Months</mat-option>
                                     </mat-select>
@@ -50,7 +53,8 @@
                             <div class="exisiting-loan p-2">
                                 <div class="title d-flex justify-content-between">
                                     <p>Do you have any existing loans</p>
-                                    <mat-slide-toggle [checked]="existingLoan" [(ngModel)]="existingLoan"  (change)="calculate()"></mat-slide-toggle>
+                                    <mat-slide-toggle [checked]="existingLoan" [(ngModel)]="existingLoan"
+                                        (change)="calculate()"></mat-slide-toggle>
                                 </div>
                             </div>
                             <div class="emi p-2">
@@ -58,8 +62,9 @@
                                     <p class="head-color fw-600 f-18">EMI of existing loan</p>
                                 </div>
                                 <mat-form-field class="width-100">
-                                    <input matInput type="text" value="&#x20B9; emiVal" class="fw-600" [(ngModel)]="emiVal">
-                                  </mat-form-field>
+                                    <input matInput type="text" value="&#x20B9; emiVal" class="fw-600"
+                                        [(ngModel)]="emiVal">
+                                </mat-form-field>
                             </div>
                         </div>
                     </div>
@@ -67,7 +72,8 @@
                         <div>
                             <div class="my-3">
                                 <p class="light-white">Loan Amount</p>
-                                <span class="white f-18 fw-500">{{remaningVal|currency:'INR' : 'symbol' : '1.0-0' }}</span>
+                                <span class="white f-18 fw-500">{{remaningVal|currency:'INR' : 'symbol' : '1.0-0'
+                                    }}</span>
                             </div>
                             <div class="my-3">
                                 <p class="light-white">Your EMI will be</p>
@@ -87,27 +93,18 @@
         <div class="col-7 container2-left-wapper" *ngIf="featuresList && featuresList.length>0">
             <div class="col1">
                 <div class="card custom-card" *ngFor="let cardData of featuresList|slice:0:3;let i=index">
-                    <img src={{cardData.imagePath}} class="card-img-top" alt="{{cardData.title}}">
-                    <div class="card-body">
-                        <h5 class="card-title fw-600">{{cardData.title}}</h5>
-                        <p class="card-text fw-400">{{cardData.description}}</p>
-                    </div>
+                    <ng-container *ngTemplateOutlet="attributesTemplate; context:{item:cardData} ">
+                    </ng-container>
                 </div>
             </div>
             <div class="col2">
                 <div class="card custom-card active" *ngFor="let cardData of featuresList|slice:3:4;let i=index">
-                    <img src={{cardData.imagePath}} class="card-img-top" alt="{{cardData.title}}">
-                    <div class="card-body">
-                        <h5 class="card-title fw-600">{{cardData.title}}</h5>
-                        <p class="card-text fw-400">{{cardData.description}}</p>
-                    </div>
+                    <ng-container *ngTemplateOutlet="attributesTemplate; context:{item:cardData} ">
+                    </ng-container>
                 </div>
                 <div class="card custom-card" *ngFor="let cardData of featuresList|slice:4:5;let i=index">
-                    <img src={{cardData.imagePath}} class="card-img-top" alt="{{cardData.title}}">
-                    <div class="card-body">
-                        <h5 class="card-title fw-600">{{cardData.title}}</h5>
-                        <p class="card-text fw-400">{{cardData.description}}</p>
-                    </div>
+                    <ng-container *ngTemplateOutlet="attributesTemplate; context:{item:cardData} ">
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -126,5 +123,12 @@
             </div>
         </div>
     </div>
-     <!-- container2 end-->
+    <!-- container2 end-->
 </div>
+<ng-template #attributesTemplate let-item="item">
+    <img src={{item.imagePath}} class="card-img-top" alt="{{item.title}}">
+    <div class="card-body">
+        <h5 class="card-title fw-600">{{item.title}}</h5>
+        <p class="card-text fw-400">{{item.description}}</p>
+    </div>
+</ng-template>
