@@ -91,18 +91,18 @@
                 </div>
             </div>
             <div class="col2">
-                <div class="card custom-card active" *ngFor="let cardData of featuresList|slice:4:5;let i=index">
+                <div class="card custom-card active" *ngFor="let cardData of featuresList|slice:3:4;let i=index">
                     <img src={{cardData.imagePath}} class="card-img-top" alt="{{cardData.title}}">
                     <div class="card-body">
                         <h5 class="card-title fw-600">{{cardData.title}}</h5>
                         <p class="card-text fw-400">{{cardData.description}}</p>
                     </div>
                 </div>
-                <div class="card custom-card">
-                    <img src="../../assets/images/get-paid.png" class="card-img-top" alt="...">
+                <div class="card custom-card" *ngFor="let cardData of featuresList|slice:4:5;let i=index">
+                    <img src={{cardData.imagePath}} class="card-img-top" alt="{{cardData.title}}">
                     <div class="card-body">
-                        <h5 class="card-title fw-600">Quick cash disbursement</h5>
-                        <p class="card-text fw-400">Get terms loans that your business needs within 72 hrs.</p>
+                        <h5 class="card-title fw-600">{{cardData.title}}</h5>
+                        <p class="card-text fw-400">{{cardData.description}}</p>
                     </div>
                 </div>
             </div>
