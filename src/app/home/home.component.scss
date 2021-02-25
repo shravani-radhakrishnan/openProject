@@ -27,6 +27,12 @@ p {
                 @include container(39rem, 32rem, 430px, 70px, absolute, 1, left);
                 background: transparent url("../../assets/images/dots.png") 0% 0% no-repeat padding-box;
             }
+            .header-tile {
+                width: 50%;
+                position: absolute;
+                left: 13rem;
+                top: 7rem;
+            }
         }
         .container1-right-wapper {
             .top-bubble {
@@ -63,7 +69,7 @@ p {
                     }
                 }
             }
-            .lines{
+            .lines {
                 @include container(54rem, 32rem, 430px, 70px, absolute, 1, left);
                 z-index: -1;
                 background: transparent url("../../assets/images/dots.png") 0% 0% no-repeat padding-box;
@@ -127,12 +133,6 @@ p {
                 line-height: 25px;
                 @include margin(2rem 0rem 3rem 0rem);
             }
-            .underline {
-                background: $light-ash1;
-                width: 40%;
-                height: 5px;
-                @include margin(1rem 0rem 1rem 0rem);
-            }
             .open-acc {
                 @include getButton(none, $purple, 279px, 58px, $purple);
                 color: $purple;
@@ -140,6 +140,13 @@ p {
         }
     }
 }
+.underline {
+    background: $light-ash1;
+    width: 40%;
+    height: 5px;
+    @include margin(1rem 0rem 1rem 0rem);
+}
+// changing deafult mat colors and design using ng-deep
 ::ng-deep .tenture > .mat-form-tenture {
     width: 100% !important;
     .mat-form-field-flex {
@@ -153,16 +160,16 @@ p {
         display: none;
     }
 }
-::ng-deep .mat-accent .mat-slider-track-fill, .mat-accent .mat-slider-thumb-label{
-    background-color:$purple ;
-}
-::ng-deep .mat-accent .mat-slider-thumb{
-    background-color:$purple ;
-}
-::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-bar{
+::ng-deep .mat-accent .mat-slider-track-fill,
+.mat-accent .mat-slider-thumb-label {
     background-color: $purple;
 }
-::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb{
+::ng-deep .mat-accent .mat-slider-thumb {
+    background-color: $purple;
+}
+::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: $purple;
+}
+::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
     background-color: $white;
 }
-
