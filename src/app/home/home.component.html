@@ -1,4 +1,5 @@
 <div class="home-container">
+    <!-- container1 start  EMI cal-->
     <div class="row sub-container1 main-container">
         <div class="col-6 container1-left-wapper">
             <div class="side-bubble"></div>
@@ -8,23 +9,84 @@
         <div class="col-6 container1-right-wapper">
             <div class="top-bubble"></div>
             <div class="eligible-calci-box">
-                <div class="card calci-card">
+                <div class="card calci-card ">
                     <div class="card-body">
-                        <h5 class="card-title">Eligibility Calculator</h5>
-                        <p class="card-text"></p>
+                        <h5 class="card-title text-center">Eligibility Calculator</h5>
+                        <div class="card-content">
+                            <div class="income p-2">
+                                <div class="title">
+                                    <p class="fw-600 head-color">Monthly Income</p>
+                                    <p class="f-20 fw-600">{{incomeSliderVal | currency:'INR' : 'symbol' : '1.0-0'}}</p>
+                                </div>
+                                <mat-slider [min]=minIncome [max]=maxIncome [(ngModel)]="incomeSliderVal" (change)="calculate()"></mat-slider>
+                                <div class="d-flex justify-content-between">
+                                    <span class="f-10">{{minIncome |currency:'INR' : 'symbol' : '1.0-0'}}</span>
+                                    <span class="f-10">{{maxIncome |currency:'INR' : 'symbol' : '1.0-0'}}</span>
+                                </div>
+                            </div>
+                            <div class="expense p-2">
+                                <div class="title">
+                                    <p class="fw-600 head-color f-18">Monthly Expense</p>
+                                    <p class="f-20 fw-600">{{expenseSliderVal |currency:'INR' : 'symbol' : '1.0-0'}}</p>
+                                </div>
+                                <mat-slider [min]=minExpense [max]=maxExpense [(ngModel)]="expenseSliderVal" [disabled]=disable (change)="calculate()">
+                                </mat-slider>
+                            </div>
+                            <div class="tenture p-2">
+                                <div class="title">
+                                    <p class="fw-600 head-color f-18">Repayment Tenure</p>
+                                </div>
+                                <mat-form-field appearance="fill" class="mat-form-tenture">
+                                    <mat-select [(value)]="selectedMonth" class="fw-600 f-18" (selectionChange)="calculate()">
+                                        <mat-option *ngFor="let selectedMonth of monthsList" [value]="selectedMonth"
+                                            class="f-20 fw-600">{{selectedMonth}} Months</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="exisiting-loan p-2">
+                                <div class="title d-flex justify-content-between">
+                                    <p>Do you have any existing loans</p>
+                                    <mat-slide-toggle [checked]="existingLoan" [(ngModel)]="existingLoan"  (change)="calculate()"></mat-slide-toggle>
+                                </div>
+                            </div>
+                            <div class="emi p-2">
+                                <div class="title">
+                                    <p class="head-color fw-600 f-18">EMI of existing loan</p>
+                                </div>
+                                <mat-form-field class="width-100">
+                                    <input matInput type="text" value="&#x20B9; emiVal" class="fw-600" [(ngModel)]="emiVal">
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body side-cal d-flex align-items-center text-center">
+                        <div>
+                            <div class="my-3">
+                                <p class="light-white">Loan Amount</p>
+                                <span class="white f-18 fw-500">{{remaningVal|currency:'INR' : 'symbol' : '1.0-0' }}</span>
+                            </div>
+                            <div class="my-3">
+                                <p class="light-white">Your EMI will be</p>
+                                <span class="white f-18 fw-500">{{emiVal |currency:'INR' : 'symbol' : '1.0-0'}}</span>
+                            </div>
+                            <button class="get-money"> GET MONEY</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="lines"></div>
         </div>
     </div>
+    <!-- container1 end -->
+    <!-- container2 start features -->
     <div class="row sub-container2 features-container">
         <div class="col-7 container2-left-wapper" *ngIf="featuresList && featuresList.length>0">
             <div class="col1">
                 <div class="card custom-card" *ngFor="let cardData of featuresList|slice:0:3;let i=index">
                     <img src={{cardData.imagePath}} class="card-img-top" alt="{{cardData.title}}">
                     <div class="card-body">
-                        <h5 class="card-title">{{cardData.title}}</h5>
-                        <p class="card-text">{{cardData.description}}</p>
+                        <h5 class="card-title fw-600">{{cardData.title}}</h5>
+                        <p class="card-text fw-400">{{cardData.description}}</p>
                     </div>
                 </div>
             </div>
@@ -32,26 +94,26 @@
                 <div class="card custom-card active" *ngFor="let cardData of featuresList|slice:4:5;let i=index">
                     <img src={{cardData.imagePath}} class="card-img-top" alt="{{cardData.title}}">
                     <div class="card-body">
-                        <h5 class="card-title">{{cardData.title}}</h5>
-                        <p class="card-text">{{cardData.description}}</p>
+                        <h5 class="card-title fw-600">{{cardData.title}}</h5>
+                        <p class="card-text fw-400">{{cardData.description}}</p>
                     </div>
                 </div>
                 <div class="card custom-card">
                     <img src="../../assets/images/get-paid.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Quick cash disbursement</h5>
-                        <p class="card-text">Get terms loans that your business needs within 72 hrs.</p>
+                        <h5 class="card-title fw-600">Quick cash disbursement</h5>
+                        <p class="card-text fw-400">Get terms loans that your business needs within 72 hrs.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-4 container2-right-wapper">
             <div style="width: 60%;">
-                <div class="sub-header">
+                <div class="sub-header fw-500">
                     Boost your business <br>with Open
                 </div>
                 <div class="underline"></div>
-                <div class="sub-title">
+                <div class="sub-title fw-400">
                     Get your hands on a term loan that’s crafted for your business
                 </div>
                 <div>
@@ -60,4 +122,5 @@
             </div>
         </div>
     </div>
+     <!-- container2 end-->
 </div>

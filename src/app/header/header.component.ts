@@ -8,7 +8,9 @@ import {navList} from '../core/common.constant'
 })
 export class HeaderComponent implements OnInit {
   navListData = navList;
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }

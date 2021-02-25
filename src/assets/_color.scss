@@ -1,15 +1,24 @@
 /* common color code*/
-$light-black:#222222;
-$light-white :#FCFCFF;
-$purple:#663399;
-$light-purple:#9F62C9;
-$ash:#00000033;
-$light-ash:#777777;
-$light-ash1:#707070;
-$light-ash2:#999999;
-$white:#FFFFFF; 
-$black:#000000;
+$light-black: #222222;
+$light-white: #fcfcff;
+$purple: #663399;
+$light-purple: #9f62c9;
+$ash: #00000033;
+$light-ash: #777777;
+$light-ash1: #707070;
+$light-ash2: #999999;
+$white: #ffffff;
+$black: #000000;
 
-
-
-.text-color{color: $light-black };
+.text-color {
+    color: $light-black;
+}
+.head-color {
+    color: $light-ash;
+}
+.white {
+    color: $white;
+}
+.light-white {
+    color: $light-white;
+}

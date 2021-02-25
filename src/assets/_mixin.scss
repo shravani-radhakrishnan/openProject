@@ -1,5 +1,4 @@
-@mixin getButton($bgcolor, $border,$width,$height) {
-    height: 45px;
+@mixin getButton($bgcolor, $border, $width, $height,$color) {
     box-shadow: 0px 0px 20px #00000033;
     border: 2px solid $border;
     border-radius: 24px;
@@ -7,6 +6,7 @@
     background: $bgcolor;
     width: $width;
     height: $height;
+    color:$color
 }
 @mixin font($size) {
     font-size: $size;
@@ -17,3 +17,20 @@
 @mixin padding($padding) {
     padding: $padding;
 }
+@mixin container($top, $leftright, $width, $height, $position, $opacity, $lr) {
+    width: $width;
+    height: $height;
+    top: $top;
+    opacity: $opacity;
+    position: $position;
+    @if $lr == "left" {
+        left: $leftright;
+    } @else {
+        right: $leftright;
+    }
+}
+// @mixin fonts($size,$family,$type) {
+//     font-size: $size;
+//     font-family: $family;
+//    font-weight: ; 
+// }

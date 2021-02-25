@@ -1,13 +1,14 @@
 @import "../../assets/mixin";
 @import "../../assets/color";
+@import "../../assets/common-styles";
 
 $bg-color: transparent linear-gradient(90deg, #9f62c9 0%,$purple 100%) 0% 0% no-repeat padding-box;
 .login-btn {
-    @include getButton(none,$purple,118px,45px);
+    @include getButton(none,$purple,118px,45px,$purple);
     // @include margin()
 }
 .start {
-    @include getButton($bg-color,$purple,166px,45px);
+    @include getButton($bg-color,$purple,166px,45px,$white);
 }
 .navbar {
     display: flex;
@@ -26,9 +27,7 @@ a {
     @include margin(0 1rem);
     li {
         text-align: left;
-        @include font(22px);
-        font-family: Open Sans;
-        font-weight: normal;
+        // @include font(22px);
         letter-spacing: 0px;
     }
 }
