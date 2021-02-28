@@ -5,10 +5,11 @@
 $bg-color: transparent linear-gradient(90deg, #9f62c9 0%,$purple 100%) 0% 0% no-repeat padding-box;
 .login-btn {
     @include getButton(none,$purple,118px,45px,$purple);
-    // @include margin()
+    @include font(16px);
 }
 .start {
     @include getButton($bg-color,$purple,166px,45px,$white);
+    @include font(16px);
 }
 .navbar {
     display: flex;
@@ -16,7 +17,7 @@ $bg-color: transparent linear-gradient(90deg, #9f62c9 0%,$purple 100%) 0% 0% no-
     justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
-    max-width: 88%;
+    max-width: 80%;
     @include margin(0 auto);
     @include padding(20px 0);
 }
@@ -27,7 +28,7 @@ a {
     @include margin(0 1rem);
     li {
         text-align: left;
-        // @include font(22px);
+        @include font(25px);
         letter-spacing: 0px;
     }
 }
